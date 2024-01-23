@@ -1,3 +1,3 @@
 print("y")
 
-print("efefy")
+print("efef")
