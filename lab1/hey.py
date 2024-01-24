@@ -1,3 +1,1 @@
-print("y")
-
-print("efef
+print("efef")
