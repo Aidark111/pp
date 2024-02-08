@@ -35,7 +35,7 @@ def average_imdb_score_by_category(movies, category):
     return average_imdb_score(category_movies)
 
 print(above_5_5({"name": "Usual Suspects", "imdb": 7.0, "category": "Thriller"}))
-print(above_5_5_sublist(movies))
+print(above_5_5_sublist(movies))    
 print(movies_by_category(movies, "Romance"))
 print(average_imdb_score(movies))
 print(average_imdb_score_by_category(movies, "Romance"))

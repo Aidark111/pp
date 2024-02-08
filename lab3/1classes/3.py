@@ -1,6 +1,7 @@
-thislist = [" "]
-for x in thislist:
-    x = input()
-    print(x)
+class Rectangle(Shape):
+    def __init__(self, length, width):
+        self.length = length
+        self.width = width
 
-        
+    def area(self):
+        return self.length * self.width

@@ -1,6 +1,15 @@
-thislist = [1, 2 , 3 , 4 , 5 , 6 ,7 , 8, 9, 10, 11, 12, 13, 4]
-for x in thislist:
-    if(x<10): print(x)
-    
+import math
+class Point:
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
 
-        
+    def show(self):
+        print(f"({self.x}, {self.y})")
+
+    def move(self, dx, dy):
+        self.x += dx
+        self.y += dy
+
+    def dist(self, other_point):
+        return math.sqrt((self.x - other_point.x)**2 + (self.y - other_point.y)**2)
