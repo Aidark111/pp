@@ -4,8 +4,13 @@ class Account:
         self.balance = balance
 
     def deposit(self, amount):
-        self.balance += amount
-        print(f"Deposit of {amount} accepted. Balance: {self.balance}")
+        if(amount<10000000):
+            self.balance += amount
+            print(f"Deposit of {amount} accepted. Balance: {self.balance}")
+        else: 
+            print("Where did you get this?")
+
+        
 
     def withdraw(self, amount):
         if amount <= self.balance:
@@ -13,3 +18,7 @@ class Account:
             print(f"Withdrawal of {amount} accepted. Balance: {self.balance}")
         else:
             print("Insufficient")
+
+account = Account("Linus", 100000)
+account.deposit(10000000)
+
