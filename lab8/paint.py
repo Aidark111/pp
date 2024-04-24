@@ -10,8 +10,8 @@ def main():
     y = 0
     mode = 'blue'
     points = []
-    eraser = False
-    color = (0, 0, 255)
+    eraser = False  # Flag for eraser mode
+    color = (0, 0, 255)  # Default color
     
     while True:
         
@@ -31,6 +31,7 @@ def main():
                     return
                 if event.key == pygame.K_ESCAPE:
                     return
+                # Color selection
                 if event.key == pygame.K_r:
                     mode = 'red'
                 elif event.key == pygame.K_g:
@@ -39,17 +40,20 @@ def main():
                     mode = 'blue'
                 elif event.key == pygame.K_p:
                     mode= 'pink'
+                # Toggle eraser mode
                 elif event.key == pygame.K_SPACE:
                     eraser = not eraser
                 
             if event.type == pygame.MOUSEBUTTONDOWN:
-                if event.button == 1:
+                if event.button == 1: # left click grows radius
                     radius = min(200, radius + 1)
-                elif event.button == 3:
+                elif event.button == 3: # right click shrinks radius
                     radius = max(1, radius - 1)
-                elif event.button == 4:
+                # Draw rectangle on scroll up
+                elif event.button == 4: # scroll up
                     drawRectangle(screen, x, y, radius, mode)
-                elif event.button == 5:
+                # Draw circle on scroll down
+                elif event.button == 5: # scroll down
                     pygame.draw.circle(screen, color, (x, y), radius, width=0)
                 
             if event.type == pygame.MOUSEMOTION:
@@ -59,6 +63,7 @@ def main():
                 
         screen.fill((0, 0, 0))
         
+        # draw all points
         i = 0
         while i < len(points) - 1:
             drawLineBetween(screen, i, points[i], points[i + 1], radius, mode, eraser)
@@ -69,9 +74,10 @@ def main():
         clock.tick(60)
 
 def drawLineBetween(screen, index, start, end, width, color_mode, eraser=False):
+    # Check if eraser mode is enabled
     if eraser:
         global color
-        color = (0, 0, 0)
+        color = (0, 0, 0)  # Set color to black for eraser
     else:
         c1 = max(0, min(255, 2 * index - 256))
         c2 = max(0, min(255, 2 * index))
